@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <button @click="btn1click(123)">按钮1</button>
+        <button @click="bnt2click">按钮2</button>
+        <button @click="btn3click(123,$event)">按钮3</button>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+        },
+        methods: {
+          btn1click(abc) {
+            console.log(abc)
+          },
+          bnt2click(event) {
+            console.log(event)
+          },
+          btn3click(abc, event) {
+            console.log(abc,event)
+          }
+        }
+    })
+</script>
+</body>
+</html>

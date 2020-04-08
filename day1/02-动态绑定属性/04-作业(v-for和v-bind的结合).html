@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <ul :class="getclass(index)" v-for="(item, index) in movies" :key="index"  @click="changecolor(index)">
+            <li>{{index}}-{{item}}</li>
+        </ul>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            active: 'active',
+            isactive: true,
+            isActive: false,
+            Isactive: false,
+            IsActive: false,
+            movies: ['海王', '海尔兄弟', '火影忍者', '进击的巨人']
+        },
+        methods: {
+            changecolor (index) {
+                if (index === 0) {
+                    this.isactive = !this.isactive
+                }
+                if (index === 1) {
+                    this.isActive = !this.isActive
+                }
+                if (index === 2) {
+                    this.Isactive = !this.Isactive
+                }
+                if (index === 3) {
+                    this.IsActive = !this.IsActive
+                }
+            },
+            getclass (index) {
+                if (index === 0) {
+                    return {
+                    active: this.isactive
+                }               
+                }
+                if (index === 1) {
+                    return {
+                    active: this.isActive
+                }               
+                }
+                if (index === 2) {
+                    return {
+                    active: this.Isactive
+                }               
+                }
+                if (index === 3) {
+                    return {
+                    active: this.IsActive
+                }               
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app" >
+      <div @click="divclick">
+        aaa
+        <button @click.stop="btnclick">按钮</button>
+      </div>
+      <br>
+      <form action="baidu">
+        <input type="submit" value="提交" @click.prevent="sublitclick">
+      </form>
+      <input type="text" @keyup.enter="keyup">
+      <!-- <cpn @click.navite="cpnclick"></cpn> -->
+      <button @click.once="btn2click">按钮</button>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+        },
+        methods: {
+          btnclick() {
+            console.log("btnclick")
+          },
+          divclick() {
+            console.log("divclick")
+          },
+          sublitclick() {
+            console.log('submitclick')
+          },
+          keyup() {
+            console.log("keyup")
+          },
+          btn2click() {
+            console.log("btn2click")
+          }
+        }
+    })
+</script>
+</body>
+</html>

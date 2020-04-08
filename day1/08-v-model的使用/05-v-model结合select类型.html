@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <select name="abc" v-model="fruits" multiple id="">
+            <option value="苹果">苹果</option>
+            <option value="香蕉">香蕉</option>
+        </select> -->
+        <input type="checkbox" value="篮球" v-model="hobbies">篮球
+        <input type="checkbox"  value="足球" v-model="hobbies">足球
+        <input type="checkbox"  value="乒乓球" v-model="hobbies">乒乓球
+        <input type="checkbox"  value="羽毛球" v-model="hobbies">羽毛球
+        <input type="checkbox" value="台球" v-model="hobbies">台球
+        <h2>{{hobbies}}</h2>
+        
+        <label v-for="item in originHobbies" :for="item">
+            <input type="checkbox" :id="item" :value="item" v-model="hobbies">{{item}}
+        </label>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            fruits: '',
+            hobbies: [],
+            originHobbies: ['篮球', '足球', '乒乓球', '羽毛球', '台球', '高尔夫球'],
+            
+        }
+    })
+</script>
+</body>
+</html>
