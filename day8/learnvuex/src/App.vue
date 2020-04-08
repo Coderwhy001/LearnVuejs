@@ -1,32 +1,28 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <h2>{{message}}</h2>
+    <button @click="$store.state.counter++">+</button>
+    <button @click="$store.state.counter--">-</button>
+    <h2>{{$store.state.counter}}</h2>
+    <hello-vuex></hello-vuex>
   </div>
 </template>
 
+<script>
+import HelloVuex from './components/HelloVuex'
+export default {
+  data() {
+    return {
+      message: '我是APP组件',
+      counter: 0
+    }
+  },
+  components: {
+    HelloVuex
+  }
+}
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
 
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
