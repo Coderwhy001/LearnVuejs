@@ -1,9 +1,12 @@
 <template>
   <div id="app">
     <h2>{{message}}</h2>
-    <button @click="$store.state.counter++">+</button>
-    <button @click="$store.state.counter--">-</button>
+    <button @click="addition">+</button>
+    <button @click="subtraction">-</button>
     <h2>{{$store.state.counter}}</h2>
+    <h2>{{$store.getters.powerCounter}}</h2>
+    <h2>{{$store.getters.more20stu}}</h2>
+    <h2>{{$store.getters.moreAgeStu(8)}}</h2>
     <hello-vuex></hello-vuex>
   </div>
 </template>
@@ -17,8 +20,21 @@ export default {
       counter: 0
     }
   },
+  // computed: {
+  //   more20stu() {
+  //     return this.$store.state.students.filter(s => s.age >=20)
+  //   }
+  // },
   components: {
     HelloVuex
+  },
+  methods: {
+    addition() {
+      this.$store.commit('increment')
+    },
+    subtraction() {
+      this.$store.commit('decrement')
+    }
   }
 }
 </script>
