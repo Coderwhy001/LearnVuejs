@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <h2>{{$store.state.info}}</h2>
+    <button @click="changeinfo">修改</button>
     <h2>{{message}}</h2>
     <button @click="addition">+</button>
     <button @click="subtraction">-</button>
@@ -14,6 +16,7 @@
 
 <script>
 import HelloVuex from './components/HelloVuex'
+import {INCREMENT} from './store/mutations-types'
 export default {
   data() {
     return {
@@ -31,7 +34,7 @@ export default {
   },
   methods: {
     addition() {
-      this.$store.commit('increment')
+      this.$store.commit('INCREMENT')
     },
     subtraction() {
       this.$store.commit('decrement')
@@ -42,6 +45,9 @@ export default {
     addStudent() {
       const stu = {id: 114, name: 'alan', age: 35}
       this.$store.commit('addStudent', stu)
+    },
+    changeinfo() {
+      this.$store.commit('changeinfo')
     }
   }
 }
