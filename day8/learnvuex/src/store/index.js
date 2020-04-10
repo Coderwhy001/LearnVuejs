@@ -19,6 +19,9 @@ export default new Vuex.Store({
     },
     decrement(state) {
       state.counter--
+    },
+    addStudent(state, stu) {
+      state.students.push(stu)
     }
   },
   actions: {

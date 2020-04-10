@@ -7,6 +7,7 @@
     <h2>{{$store.getters.powerCounter}}</h2>
     <h2>{{$store.getters.more20stu}}</h2>
     <h2>{{$store.getters.moreAgeStu(8)}}</h2>
+    <button @click="addStudent">添加学生</button>
     <hello-vuex></hello-vuex>
   </div>
 </template>
@@ -34,6 +35,13 @@ export default {
     },
     subtraction() {
       this.$store.commit('decrement')
+      this.$store.commit({
+        type: 'decrement',
+      })
+    },
+    addStudent() {
+      const stu = {id: 114, name: 'alan', age: 35}
+      this.$store.commit('addStudent', stu)
     }
   }
 }
