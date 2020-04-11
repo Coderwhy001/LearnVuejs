@@ -29,16 +29,29 @@ export default new Vuex.Store({
       state.students.push(stu)
     },
     changeinfo(state) {
-      // state.info.name = 'xiao'
+      state.info.name = 'xiao'
       // state.info['address'] = '洛杉矶'
       // Vue.set(state.info, 'address', '洛杉矶')
-      setTimeout(() => {
-        state.info.name = 'xiao'
-      }, 1000)
       Vue.delete(state.info,'age')
     }
   },
-  actions: {
+  actions: { // 异步操作
+    // aUpdateInfo(context, payload) {
+    //   setTimeout(() => {
+    //     context.commit('changeinfo')
+    //     console.log(payload.message)
+    //     payload.success()
+    //   }, 1000)
+    // }
+    aUpdateInfo(context, payload) {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          context.commit('changeinfo')
+          console.log(payload)
+          resolve(1111)
+        }, 1000)
+      })
+    }
   },
   getters:{
     powerCounter(state) {

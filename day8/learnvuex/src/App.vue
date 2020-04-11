@@ -47,7 +47,20 @@ export default {
       this.$store.commit('addStudent', stu)
     },
     changeinfo() {
-      this.$store.commit('changeinfo')
+      // this.$store.commit('changeinfo')
+      // this.$store.dispatch('aUpdateInfo', {
+      //   message: '我是携带的信息',
+      //   success: () => {
+      //     console.log('222')
+      //   }
+      // }) // commit 提交到mutation dispath提交到action
+      this.$store
+        .dispatch('aUpdateInfo', '我是携带的信息')
+        .then(res => {
+          console.log('立面完成的回调')
+          console.log(res)
+        })
+
     }
   }
 }
