@@ -16,7 +16,28 @@ axios({
   url: 'http://123.207.32.32:8000/home/multidata',
   method: 'get'
 }).then(res => {
-  console.log(res)
+  // console.log(res)
 })
 
-axios.post()
+axios({
+  url: 'http://123.207.32.32:8000/api/h8/home/data',
+  params: {
+    type: 'pop',
+    page: 1
+  }
+}).then(res => {
+  // console.log(res)
+})
+
+axios.all([axios({
+  url: 'http://123.207.32.32:8000/home/multidata'
+}), axios({
+  url: 'http://123.207.32.32:8000/api/h8/home/data',
+  params: {
+    type: 'sell',
+    page: 5
+  }
+})]).then(axios.spread((res1, res2) => {
+  console.log(res1)
+  console.log(res2)
+}))
